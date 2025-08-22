@@ -1,0 +1,51 @@
+<div class="transactions-page">
+  <p *ngIf="message" class="message">{{ message }}</p>
+
+  <!-- TRANSACTIONS HEADER -->
+  <div class="transactions-header">
+    <h1>Transactions</h1>
+    <div class="transaction-search">
+      <input
+        type="text"
+        placeholder="Search transactions"
+        [(ngModel)]="searchInput"
+        (keyup.enter)="handleSearch(searchInput)"
+      />
+      <button (click)="handleSearch(searchInput)">Search</button>
+    </div>
+  </div>
+
+  <!-- TRANSACTIONS LIST -->
+  <div *ngIf="transactions.length > 0">
+    <table class="transactions-table">
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Status</th>
+          <th>Total Price</th>
+          <th>Total Products</th>
+          <th>Date</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let transaction of transactions">
+          <td>{{ transaction.transactionType }}</td>
+          <td>{{ transaction.status }}</td>
+          <td>{{ transaction.totalPrice }}</td>
+          <td>{{ transaction.totalProducts }}</td>
+          <td>{{ transaction.createdAt |date:'short' }}</td>
+          <td>
+            <button (click)="navigateToTransactionDetailsPage(transaction.id)">View Details</button> 
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <!-- PAGINATION COMPONENT IN USE -->
+  <app-pagination
+    [currentPage]="currentPage"
+    [totalPages]="totalPages"
+    (pageChange)="onPageChange($event)"
+  ></app-pagination>
+</div>

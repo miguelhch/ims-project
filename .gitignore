@@ -1,0 +1,62 @@
+# ----------------------------------------
+# General Project Ignores
+# ----------------------------------------
+.idea/
+.vscode/
+.DS_Store
+*.iml
+*.iws
+*.ipr
+.project
+.classpath
+.settings/
+.vscode/
+
+# ----------------------------------------
+# Maven & Java (Spring Boot Backend)
+# ----------------------------------------
+# Compiled artifacts and build directories
+/target/
+/bin/
+
+# Maven wrapper files
+.mvn/wrapper/maven-wrapper.jar
+/logs/
+*.log
+*.class
+
+# Jar, War, and other archive files
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+
+# ----------------------------------------
+# Node.js & Angular (Frontend)
+# ----------------------------------------
+# Node modules
+/node_modules/
+
+# Angular build output directory
+/dist/
+/out-tsc/
+/coverage/
+
+# IDE specific files
+.angular/
+.cache/
+
+# Lock files and configuration
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ----------------------------------------
+# Environment Files (Crucial for Security)
+# ----------------------------------------
+# Do NOT commit sensitive data.
+.env
+.env.development
+.env.production
+.env.local
